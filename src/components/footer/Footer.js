@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Container, Box } from "@mui/material";
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer>
       <Box bgcolor="#212121" py={4} textAlign="center">
@@ -13,6 +13,4 @@ const Footer = () => {
       </Box>
     </footer>
   );
-};
-
-export default Footer;
+}
