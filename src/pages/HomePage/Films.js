@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-export default function FilmsContainer({ films }) {
+export default function Films({ films }) {
   const [film, setFilms] = useState([]);
   return (
     <div className="container">
@@ -22,6 +23,9 @@ export default function FilmsContainer({ films }) {
                 <div className="extra">
                   <span className="country">{film.nation}</span>
                 </div>
+                <Link to={`detail/${film.id}`}>
+                  <button>Detail.js</button>
+                </Link>
                 <button
                   onClick={() => {
                     setFilms(film);
