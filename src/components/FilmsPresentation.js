@@ -1,5 +1,5 @@
-import React from 'react';
-import films from '../List/ListOfFilms';
+import React from "react";
+import films from "../List/ListOfFilms";
 
 export default function FilmsPresentation() {
   return (
@@ -14,7 +14,9 @@ export default function FilmsPresentation() {
               <div className="data sm-9">
                 <h4>{film.title}</h4>
                 <div className="extra">
-                  <span className="date" itemprop="dateCreated">{film.year}</span>
+                  <span className="date" itemprop="dateCreated">
+                    {film.year}
+                  </span>
                 </div>
                 <div className="extra">
                   <span className="country">{film.nation}</span>

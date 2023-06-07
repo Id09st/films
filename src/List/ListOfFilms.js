@@ -1,68 +1,85 @@
 export const films = [
-    {
-      id: 1,
-      image: "assets/images/1.jpg",
-      title: "Vệ Binh Dải Ngân Hà 3",
-      year: "2023",
-      nation: "USA"
-    },
-    {
-      id: 2,
-      image: "assets/images/2.jpg",
-      title: "John Wick: Phần 4",
-      year: "2023",
-      nation: "USA"
-    },
-    {
-      id: 3,
-      image: "assets/images/3.jpg",
-      title: "Khắc Tinh Của Quỷ",
-      year: "2023",
-      nation: "USA"
-    },
-    {
-      id: 4,
-      image: "assets/images/4.jpg",
-      title: "Trường Nguyệt Tẫn Minh",
-      year: "2023",
-      nation: "CHINA"
-    },
-    {
-      id: 5,
-      image: "assets/images/5.jpg",
-      title: "Người Kiến Và Chiến Binh Ong: Thế Giới Lượng Tử",
-      year: "2023",
-      nation: "USA"
-    },
-    {
-      id: 6,
-      image: "assets/images/6.jpg",
-      title: "Avatar: Dòng Chảy Của Nước",
-      year: "2023",
-      nation: "USA"
-    },
-	{
-      id: 7,
-      image: "assets/images/7.jpg",
-      title: "Đầu Gấu Đụng Đầu Đất",
-      year: "2023",
-      nation: "Korean"
-    },
-	{
-      id: 8,
-      image: "assets/images/8.jpg",
-      title: "Triệu Hồi Qorin",
-      year: "2022",
-      nation: "Indonesia"
-    },
-	{
-      id: 9,
-      image: "assets/images/9.jpg",
-      title: "Kẻ Sập Bẫy",
-      year: "2023",
-      nation: "Philippines"
-    },
-  ];
-  
-  export default films;
-  
+  {
+    id: 1,
+    image: "assets/images/1.jpg",
+    name: "Guardians of the Galaxy Volume 3",
+    title: "Vệ Binh Dải Ngân Hà 3",
+    year: "2023",
+    nation: "USA",
+    info: "sau khi mua Knowhere từ The Collector, đội Vệ binh dải Ngân Hà cố gắng biến nó thành nơi trú ẩn an toàn cho những người tị nạn sau cú búng tay di dời. Nhưng sau một cuộc tấn công tàn bạo, Peter Quill, vẫn cảm xúc vì mất Gamora, phải tập hợp các Vệ binh để thực hiện sứ mệnh bảo vệ vũ trụ và bảo vệ một người trong số họ khỏi kẻ thù chung nguy hiểm.",
+  },
+  {
+    id: 2,
+    image: "assets/images/2.jpg",
+    name: "John Wick: Chapter 4",
+    title: "John Wick: Phần 4",
+    year: "2023",
+    nation: "USA",
+    info: "là câu chuyện của John Wick (Keanu Reeves) đã khám phá ra con đường để đánh bại High Table. Nhưng trước khi có thể kiếm được tự do, Wick phải đối đầu với kẻ thù mới với những liên minh hùng mạnh trên toàn cầu và những lực lượng biến những người bạn cũ thành kẻ thù.",
+  },
+  {
+    id: 3,
+    image: "assets/images/3.jpg",
+    name: "The Pope’s Exorcist",
+    title: "Khắc Tinh Của Quỷ",
+    year: "2023",
+    nation: "USA",
+    info: "lấy cảm hứng từ những hồ sơ có thật của Cha Gabriele Amorth, Trưởng Trừ Tà của Vatican (Russell Crowe, đoạt giải Oscar®), bộ phim “The Pope’s Exorcist” theo chân Amorth trong cuộc điều tra về vụ quỷ ám kinh hoàng của một cậu bé và dần khám phá ra những bí mật hàng thế kỷ mà Vatican đã cố gắng giấu kín.",
+  },
+  {
+    id: 4,
+    image: "assets/images/4.jpg",
+    name: "Till the End of the Moon",
+    title: "Trường Nguyệt Tẫn Minh",
+    year: "2023",
+    nation: "CHINA",
+    info: "bắt đầu từ khi tam giới bị ma thần Đạm Đài Tẫn thống trị, chúng linh lầm than. Để cứu lấy chúng sinh, Lê Tô Tô – con gái của Hành Dương tông chưởng môn đã thực hiện một nhiệm vụ vô cùng nguy hiểm, quay trở lại thời điểm 500 năm trước ngăn cản Đạm Đài Tẫn trước khi hắn bị tà cốt trong người xâm chiếm hoàn toàn trở thành ma thần.",
+  },
+  {
+    id: 5,
+    image: "assets/images/5.jpg",
+    name: "Ant-Man and the Wasp: Quantumania",
+    title: "Người Kiến Và Chiến Binh Ong: Thế Giới Lượng Tử",
+    year: "2023",
+    nation: "USA",
+    info: "nói về Scott Lang và Hope Van Dyne trở lại tiếp tục cuộc phiêu lưu của họ với vai trò Người Kiến và Chiến binh Ong. Cùng với cha mẹ của Hope, họ sẽ có chuyến khám phá Lượng Tử Giới, gặp gỡ những sinh vật mới lạ và bắt đầu cuộc hành trình vào thế giới lượng tử.",
+  },
+  {
+    id: 6,
+    image: "assets/images/6.jpg",
+    name: "Avatar: The Way of Water",
+    title: "Avatar: Dòng Chảy Của Nước",
+    year: "2023",
+    nation: "USA",
+    info: "lấy bối cảnh 10 năm sau những sự kiện xảy ra ở phần đầu tiên. Phim kể câu chuyện về gia đình mới của Jake Sully (Sam Worthington thủ vai) cùng những rắc rối theo sau và bi kịch họ phải chịu đựng khi phe loài người xâm lược hành tinh Pandora.",
+  },
+  {
+    id: 7,
+    image: "assets/images/7.jpg",
+    name: "Ungnami",
+    title: "Đầu Gấu Đụng Đầu Đất",
+    year: "2023",
+    nation: "Korean",
+    info: "theo chân Woong-nam (Park Sung Woong thủ vai), chàng “đầu đất” với năng lực bẩm sinh siêu phàm tựa như loài gấu, bất đắc dĩ phải đối đầu với một tổ chức tội phạm quốc tế.",
+  },
+  {
+    id: 8,
+    image: "assets/images/8.jpg",
+    name: "Qorin",
+    title: "Triệu Hồi Qorin",
+    year: "2022",
+    nation: "Indonesia",
+    info: "cuộc sống ở một trường nội trú rơi vào hỗn loạn khi một giáo viên hướng dẫn các học sinh thực hiện nghi lễ bị cấm để triệu hồi song trùng của họ.",
+  },
+  {
+    id: 9,
+    image: "assets/images/9.jpg",
+    name: "Fall Guy",
+    title: "Kẻ Sập Bẫy",
+    year: "2023",
+    nation: "Philippines",
+    info: "là một mô tả hợp lý về những gì xảy ra trong công chúng, nơi những người giàu có sử dụng ảnh hưởng của họ để đạt được bất cứ điều gì, trong khi những sinh vật cơ cực khủng khiếp bị buộc tội sai phải chịu đựng và chiến đấu ồ ạt để chứng minh mình vô tội.",
+  },
+];
+
+export default films;
