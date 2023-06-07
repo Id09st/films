@@ -31,8 +31,12 @@ const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
   borderRadius: theme.spacing(2),
 }));
 
-const StyledCardContent = styled(CardContent)(({ theme }) => ({
+const StyledCardTitle = styled(CardContent)(({ theme }) => ({
   textAlign: "center",
+}));
+
+const StyledCardContent = styled(CardContent)(({ theme }) => ({
+  textAlign: "left",
 }));
 
 export default function Detail() {
@@ -41,10 +45,10 @@ export default function Detail() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Container>
+    <Container maxWidth="sm">
       <StyledCard>
         <StyledCardMedia component="img" src={`../${film.image}`} alt="" />
-        <StyledCardContent>
+        <StyledCardTitle>
           <Typography variant="h5" color="textPrimary" gutterBottom>
             {film.title} ({film.year})
           </Typography>
@@ -61,7 +65,9 @@ export default function Detail() {
           <Typography variant="subtitle1" color="textPrimary">
             {film.duration} | {film.nation}
           </Typography>
-          <Typography variant="body1" color="textSecondary">
+        </StyledCardTitle>
+        <StyledCardContent>
+          <Typography variant="subtitle1" color="textSecondary">
             {film.name} - {film.info}
           </Typography>
         </StyledCardContent>

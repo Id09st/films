@@ -15,7 +15,7 @@ import { PlayArrow } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 const StyledCard = styled(Card)(({ theme }) => ({
-  backgroundColor: "#282424",
+  backgroundColor: "#696969",
   color: "#f0f0f0",
   display: "flex",
   flexDirection: "column",

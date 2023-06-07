@@ -144,7 +144,7 @@ export default function ControlledAccordions() {
             <div style={{ marginRight: "16px" }}>
               <StarRate />
             </div>
-            <Typography sx={{ width: "33%", flexShrink: 0 }}>Rate:</Typography>
+            <Typography sx={{ width: "33%", flexShrink: 0 }}>Rate</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>Pre-release audience reviews for the film</Typography>
