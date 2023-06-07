@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import films from "../../List/ListOfFilms";
 import Films from "./Films";
 
-export class HomePage extends Component {
+export class Home extends Component {
   constructor() {
     super();
     this.state = {

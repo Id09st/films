@@ -2,12 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 const themes = {
   dark: {
-    backgroundColor: "black",
-    color: "white",
+    color: "",
   },
   light: {
-    backgroundColor: "white",
-    color: "black",
+    color: "grey",
   },
 };
 const initialState = {
