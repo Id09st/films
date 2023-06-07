@@ -34,11 +34,6 @@ const TitleTypography = styled(Typography)(({ theme }) => ({
   color: "white",
 }));
 
-const InfoTypography = styled(Typography)(({ theme }) => ({
-  fontSize: "1rem",
-  color: "white",
-}));
-
 const Overlay = styled("div")(({ theme }) => ({
   position: "absolute",
   top: 0,

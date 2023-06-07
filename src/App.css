@@ -16,7 +16,6 @@
 .popup {
   margin: 70px auto;
   padding: 5px;
-  background: #fff;
   border-radius: 5px;
   width: 30%;
   position: relative;
@@ -45,16 +44,12 @@
 }
 
 .modal-show {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.869);
   width: 800px;
-  height: 530px;
+  height: 595px;
   z-index: 99;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
-}
-
-.red-text {
-  color: red;
 }
