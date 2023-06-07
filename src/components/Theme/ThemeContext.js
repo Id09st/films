@@ -1,37 +1,29 @@
-import React from "react";
-import { useState, useEffect } from "react";
-const themes = {
-  dark: {
-    color: "",
-  },
-  light: {
-    color: "grey",
-  },
-};
-const initialState = {
-  dark: false,
-  theme: themes.light,
-  toggle: () => {},
-};
-const ThemeContext = React.createContext(initialState);
-function ThemeProvider({ children }) {
-  const [dark, setDark] = useState(false); // Default theme is light
-  // On mount, read the preferred theme from the persistence
-  useEffect(() => {
-    const isDark = localStorage.getItem("dark") === "true";
-    setDark(isDark);
-  }, [dark]);
-  // To toggle between dark and light modes
-  const toggle = () => {
-    const isDark = !dark;
-    localStorage.setItem("dark", JSON.stringify(isDark));
-    setDark(isDark);
+import React, { createContext, useState, useContext } from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const ThemeContext = createContext();
+
+export const ThemeProviderWrapper = ({ children }) => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const handleThemeChange = () => {
+    setDarkMode(!darkMode);
   };
-  const theme = dark ? themes.dark : themes.light;
+
+  const theme = createTheme({
+    palette: {
+      mode: darkMode ? "dark" : "light",
+      primary: {
+        main: "#f0f0f0", // Thay đổi màu chính tại đây
+      },
+    },
+  });
+
   return (
-    <ThemeContext.Provider value={{ theme, dark, toggle }}>
-      {children}
+    <ThemeContext.Provider value={{ darkMode, handleThemeChange }}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   );
-}
-export { ThemeProvider, ThemeContext };
+};
+
+export const useThemeContext = () => useContext(ThemeContext);

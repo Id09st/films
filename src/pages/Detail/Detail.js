@@ -21,7 +21,6 @@ const StyledCard = styled(Card)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   padding: theme.spacing(3),
-  backgroundColor: "#f0f0f0",
   borderRadius: theme.spacing(2),
 }));
 
