@@ -7,6 +7,7 @@ import {
   CardContent,
   Typography,
   Container,
+  Rating,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import { Button } from "@mui/material";
@@ -20,6 +21,12 @@ const StyledCard = styled(Card)(({ theme }) => ({
   flexDirection: "column",
   height: "100%",
   position: "relative",
+}));
+
+const CustomCardMedia = styled(CardMedia)(({ theme }) => ({
+  width: "400px", // Kích thước chiều rộng mới
+  height: "500px", // Kích thước chiều cao mới
+  objectFit: "cover", // Kiểu căn chỉnh ảnh
 }));
 
 const TitleTypography = styled(Typography)(({ theme }) => ({
@@ -51,7 +58,7 @@ const Overlay = styled("div")(({ theme }) => ({
 
 const DetailButton = styled(Button)(({ theme }) => ({
   color: "#f0f0f0",
-  padding: "8px 16px",
+  padding: "8px 20px",
   border: "none",
   cursor: "pointer",
 }));
@@ -63,7 +70,7 @@ export default function Films() {
         {films.map((film) => (
           <Grid item xs={12} sm={6} md={4} key={film.id}>
             <StyledCard>
-              <CardMedia
+              <CustomCardMedia
                 component="img"
                 image={film.image}
                 alt="Image Alt Text"
@@ -77,9 +84,15 @@ export default function Films() {
                 <TitleTypography gutterBottom variant="h5" component="div">
                   {film.title}
                 </TitleTypography>
-                <InfoTypography variant="body2" color="text.secondary">
-                  {film.name} - {film.info}
-                </InfoTypography>
+                <Rating
+                  name="half-rating-read"
+                  defaultValue={film.rate}
+                  precision={0.5}
+                  readOnly
+                />
+                <Typography variant="subtitle1" color="text.Secondary">
+                  {film.duration} | {film.nation}
+                </Typography>
               </CardContent>
             </StyledCard>
           </Grid>

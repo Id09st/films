@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import films from "../../List/ListOfFilms";
+import ModalCase from "./ModalCase";
+
 import {
   Card,
   CardMedia,
@@ -10,6 +12,8 @@ import {
   Rating,
 } from "@mui/material";
 import { styled } from "@mui/system";
+import { YouTube } from "@mui/icons-material";
+import { pink } from "@mui/material/colors";
 
 const StyledCard = styled(Card)(({ theme }) => ({
   display: "flex",
@@ -22,8 +26,8 @@ const StyledCard = styled(Card)(({ theme }) => ({
 }));
 
 const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
-  width: "auto",
-  height: "auto",
+  width: "185px",
+  height: "278px",
   borderRadius: theme.spacing(2),
 }));
 
@@ -34,6 +38,7 @@ const StyledCardContent = styled(CardContent)(({ theme }) => ({
 export default function Detail() {
   const { id } = useParams();
   const film = films.find((obj) => obj.id == id);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Container>
@@ -43,12 +48,16 @@ export default function Detail() {
           <Typography variant="h5" color="textPrimary" gutterBottom>
             {film.title} ({film.year})
           </Typography>
-            <Rating
-              name="half-rating-read"
-              defaultValue={film.rate}
-              precision={0.5}
-              readOnly
-            />
+          <Rating
+            name="half-rating-read"
+            defaultValue={film.rate}
+            precision={0.5}
+            readOnly
+          />
+          {isOpen && <ModalCase setIsOpen={setIsOpen} film={film} />}
+          <a onClick={() => setIsOpen(true)}>
+            <YouTube sx={{ color: pink[500], fontSize: 25 }} />
+          </a>
           <Typography variant="subtitle1" color="textPrimary">
             {film.duration} | {film.nation}
           </Typography>

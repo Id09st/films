@@ -8,6 +8,7 @@ export const films = [
     rate: "5",
     year: "2023",
     nation: "USA",
+    youtube: "https://www.youtube.com/embed/nBH8Anzfkvc",
     info: "sau khi mua Knowhere từ The Collector, đội Vệ binh dải Ngân Hà cố gắng biến nó thành nơi trú ẩn an toàn cho những người tị nạn sau cú búng tay di dời. Nhưng sau một cuộc tấn công tàn bạo, Peter Quill, vẫn cảm xúc vì mất Gamora, phải tập hợp các Vệ binh để thực hiện sứ mệnh bảo vệ vũ trụ và bảo vệ một người trong số họ khỏi kẻ thù chung nguy hiểm.",
   },
   {
@@ -19,6 +20,7 @@ export const films = [
     rate: "4.5",
     year: "2023",
     nation: "USA",
+    youtube: "https://www.youtube.com/embed/qEVUtrk8_B4",
     info: "là câu chuyện của John Wick (Keanu Reeves) đã khám phá ra con đường để đánh bại High Table. Nhưng trước khi có thể kiếm được tự do, Wick phải đối đầu với kẻ thù mới với những liên minh hùng mạnh trên toàn cầu và những lực lượng biến những người bạn cũ thành kẻ thù.",
   },
   {
@@ -30,6 +32,7 @@ export const films = [
     rate: "4",
     year: "2023",
     nation: "USA",
+    youtube: "https://www.youtube.com/embed/SXfnUAW9gwA",
     info: "lấy cảm hứng từ những hồ sơ có thật của Cha Gabriele Amorth, Trưởng Trừ Tà của Vatican (Russell Crowe, đoạt giải Oscar®), bộ phim “The Pope’s Exorcist” theo chân Amorth trong cuộc điều tra về vụ quỷ ám kinh hoàng của một cậu bé và dần khám phá ra những bí mật hàng thế kỷ mà Vatican đã cố gắng giấu kín.",
   },
   {
@@ -41,6 +44,7 @@ export const films = [
     rate: "3.5",
     year: "2023",
     nation: "CHINA",
+    youtube: "https://www.youtube.com/embed/LGZSius560I",
     info: "bắt đầu từ khi tam giới bị ma thần Đạm Đài Tẫn thống trị, chúng linh lầm than. Để cứu lấy chúng sinh, Lê Tô Tô – con gái của Hành Dương tông chưởng môn đã thực hiện một nhiệm vụ vô cùng nguy hiểm, quay trở lại thời điểm 500 năm trước ngăn cản Đạm Đài Tẫn trước khi hắn bị tà cốt trong người xâm chiếm hoàn toàn trở thành ma thần.",
   },
   {
@@ -52,6 +56,7 @@ export const films = [
     rate: "3",
     year: "2023",
     nation: "USA",
+    youtube: "https://www.youtube.com/embed/s3UD3qvJdao",
     info: "nói về Scott Lang và Hope Van Dyne trở lại tiếp tục cuộc phiêu lưu của họ với vai trò Người Kiến và Chiến binh Ong. Cùng với cha mẹ của Hope, họ sẽ có chuyến khám phá Lượng Tử Giới, gặp gỡ những sinh vật mới lạ và bắt đầu cuộc hành trình vào thế giới lượng tử.",
   },
   {
@@ -63,6 +68,7 @@ export const films = [
     rate: "2.5",
     year: "2023",
     nation: "USA",
+    youtube: "https://www.youtube.com/embed/Ru4Jbmh7bcQ",
     info: "lấy bối cảnh 10 năm sau những sự kiện xảy ra ở phần đầu tiên. Phim kể câu chuyện về gia đình mới của Jake Sully (Sam Worthington thủ vai) cùng những rắc rối theo sau và bi kịch họ phải chịu đựng khi phe loài người xâm lược hành tinh Pandora.",
   },
   {
@@ -74,6 +80,7 @@ export const films = [
     rate: "2",
     year: "2023",
     nation: "Korean",
+    youtube: "https://www.youtube.com/embed/MagrY1rpOT4",
     info: "theo chân Woong-nam (Park Sung Woong thủ vai), chàng “đầu đất” với năng lực bẩm sinh siêu phàm tựa như loài gấu, bất đắc dĩ phải đối đầu với một tổ chức tội phạm quốc tế.",
   },
   {
@@ -85,6 +92,7 @@ export const films = [
     rate: "1.5",
     year: "2022",
     nation: "Indonesia",
+    youtube: "https://www.youtube.com/embed/dqlKKZ5gpp4",
     info: "cuộc sống ở một trường nội trú rơi vào hỗn loạn khi một giáo viên hướng dẫn các học sinh thực hiện nghi lễ bị cấm để triệu hồi song trùng của họ.",
   },
   {
@@ -96,6 +104,7 @@ export const films = [
     rate: "1",
     year: "2023",
     nation: "Philippines",
+    youtube: "https://www.youtube.com/embed/sqajgO42pdQ",
     info: "là một mô tả hợp lý về những gì xảy ra trong công chúng, nơi những người giàu có sử dụng ảnh hưởng của họ để đạt được bất cứ điều gì, trong khi những sinh vật cơ cực khủng khiếp bị buộc tội sai phải chịu đựng và chiến đấu ồ ạt để chứng minh mình vô tội.",
   },
 ];

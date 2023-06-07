@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-
 import Contact from "./pages/Contact/Contact";
 import { Home } from "./pages/Home/Home";
 import Detail from "./pages/Detail/Detail";
