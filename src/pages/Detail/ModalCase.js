@@ -65,14 +65,17 @@ export default function ModalCase({ setIsOpen, film }) {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
-          <div>
-            <Typography variant="h5">
-              {film.title} ({film.year})
-            </Typography>
-            <Typography variant="subtitle1">
-              {film.name} - {film.info}
-            </Typography>
-          </div>
+          <Typography variant="h5" color="textPrimary">
+            {film.title} ({film.year})
+          </Typography>
+
+          <Typography variant="subtitle1" color="textPrimary">
+            {film.duration} | {film.nation}
+          </Typography>
+
+          <Typography variant="subtitle1" color="textSecondary">
+            {film.name} - {film.info}
+          </Typography>
         </DialogContent>
       </StyledDialog>
     </Container>

@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
-import { useThemeContext } from "../../Theme/ThemeContext";
+import { useThemeContext } from "../Theme/ThemeContext";
 import { Brightness4, Brightness7, LocalMovies } from "@mui/icons-material";
 
 export default function Navigation() {
@@ -38,7 +38,7 @@ export default function Navigation() {
     setAnchorElUser(null);
   };
 
-  const pages = ["Contact", "About"];
+  const pages = ["Contact", "About", "News"];
   const settings = ["Account", "Settings", "Logout"];
 
   return (
