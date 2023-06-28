@@ -5,10 +5,11 @@ import { Home } from "./pages/Home/Home";
 import Detail from "./pages/Detail/Detail";
 import Navigation from "./components/Nav/Navigation";
 import About from "./pages/About/About";
-import Footer from "./components/Footer/Footer";
 import News from "./pages/News/News";
 import Add from "./components/Add/Add";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Footer from "./components/footer/Footer";
+
 
 function App() {
   return (
