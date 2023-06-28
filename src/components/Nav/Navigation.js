@@ -38,7 +38,7 @@ export default function Navigation() {
     setAnchorElUser(null);
   };
 
-  const pages = ["Contact", "About", "News"];
+  const pages = ["Dashboard", "News", "About", "Contact"];
   const settings = ["Account", "Settings", "Logout"];
 
   return (
@@ -110,7 +110,7 @@ export default function Navigation() {
           </Box>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Tooltip key="home" title="home" arrow placement="bottom">
+            <Tooltip key="home" title="Home" arrow placement="bottom">
               <Button color="inherit" component={Link} to="/">
                 Home
               </Button>

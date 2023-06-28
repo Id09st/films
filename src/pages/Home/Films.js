@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
-import films from "../../List/ListOfFilms";
 import {
   Card,
   CardMedia,
@@ -12,29 +11,30 @@ import {
 import { styled } from "@mui/system";
 import { Button } from "@mui/material";
 import { PlayArrow } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-const StyledCard = styled(Card)(({ theme }) => ({
+const StyledCard = styled(Card)(({}) => ({
   backgroundColor: "#696969",
   color: "#f0f0f0",
   display: "flex",
   flexDirection: "column",
   height: "100%",
+  width: "100%",
   position: "relative",
 }));
 
-const CustomCardMedia = styled(CardMedia)(({ theme }) => ({
-  width: "400px", // Kích thước chiều rộng mới
-  height: "500px", // Kích thước chiều cao mới
+const CustomCardMedia = styled(CardMedia)(({}) => ({
+  width: "100%", // Kích thước chiều rộng mới
+  height: "400px", // Kích thước chiều cao mới
   objectFit: "cover", // Kiểu căn chỉnh ảnh
 }));
 
-const TitleTypography = styled(Typography)(({ theme }) => ({
+const TitleTypography = styled(Typography)(({}) => ({
   fontSize: "1.25rem",
   color: "white",
 }));
 
-const Overlay = styled("div")(({ theme }) => ({
+const Overlay = styled("div")(({}) => ({
   position: "absolute",
   top: 0,
   left: 0,
@@ -51,7 +51,7 @@ const Overlay = styled("div")(({ theme }) => ({
   },
 }));
 
-const DetailButton = styled(Button)(({ theme }) => ({
+const DetailButton = styled(Button)(({}) => ({
   color: "#f0f0f0",
   padding: "8px 20px",
   border: "none",
@@ -59,34 +59,50 @@ const DetailButton = styled(Button)(({ theme }) => ({
 }));
 
 export default function Films() {
+  const [films, setFilms] = useState([]);
+  const baseURL = `https://64933779428c3d2035d18178.mockapi.io/films`;
+  useEffect(() => {
+    fetch(baseURL)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setFilms(data);
+      })
+      .catch((error) => console.log(error.message));
+  }, []);
+
   return (
-    <Container>
+    <Container style={{ padding: "20px" }}>
       <Grid container spacing={2}>
-        {films.map((film) => (
-          <Grid item xs={12} sm={6} md={4} key={film.id}>
+        {films.map((data) => (
+          <Grid item xs={12} sm={6} md={3} key={data.id}>
             <StyledCard>
               <CustomCardMedia
                 component="img"
-                image={film.image}
+                image={data.image}
                 alt="Image Alt Text"
               />
               <Overlay>
-                <DetailButton component={Link} to={`detail/${film.id}`}>
+                <DetailButton component={Link} to={`detail/${data.id}`}>
                   <PlayArrow sx={{ fontSize: 80 }} />
                 </DetailButton>
               </Overlay>
               <CardContent>
                 <TitleTypography gutterBottom variant="h5" component="div">
-                  {film.title}
+                  {data.title}
                 </TitleTypography>
                 <Rating
                   name="half-rating-read"
-                  defaultValue={film.rate}
+                  defaultValue={data.rate}
                   precision={0.5}
                   readOnly
                 />
                 <Typography variant="subtitle1" color="text.Secondary">
-                  {film.duration} | {film.nation}
+                  {data.duration} | {data.nation}
                 </Typography>
               </CardContent>
             </StyledCard>

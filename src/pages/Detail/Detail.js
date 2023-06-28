@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import films from "../../List/ListOfFilms";
 import ModalCase from "./ModalCase";
 
 import {
@@ -10,8 +9,8 @@ import {
   Typography,
   Container,
   Rating,
+  styled,
 } from "@mui/material";
-import { styled } from "@mui/system";
 import { YouTube } from "@mui/icons-material";
 import { pink } from "@mui/material/colors";
 
@@ -30,23 +29,40 @@ const StyledCardMedia = styled(CardMedia)(({ theme }) => ({
   borderRadius: theme.spacing(2),
 }));
 
-const StyledCardTitle = styled(CardContent)(({ theme }) => ({
+const StyledCardTitle = styled(CardContent)(({}) => ({
   textAlign: "center",
 }));
 
-const StyledCardContent = styled(CardContent)(({ theme }) => ({
+const StyledCardContent = styled(CardContent)(({}) => ({
   textAlign: "left",
 }));
 
 export default function Detail() {
   const { id } = useParams();
-  const film = films.find((obj) => obj.id == id);
   const [isOpen, setIsOpen] = useState(false);
+  const [film, setFilms] = useState([]);
+  useEffect(() => {
+    fetch(`https://64933779428c3d2035d18178.mockapi.io/films`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const film = data.find((obj) => obj.id == id);
+        setFilms(film);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+  console.log(film);
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" style={{ padding: "20px" }}>
       <StyledCard>
-        <StyledCardMedia component="img" src={`../${film.image}`} alt="" />
+        <StyledCardMedia component="img" src={film.image} alt="" />
         <StyledCardTitle>
           <Typography variant="h5" color="textPrimary" gutterBottom>
             {film.title} ({film.year})

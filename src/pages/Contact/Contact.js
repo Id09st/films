@@ -18,7 +18,7 @@ const nations = [
   "Germany",
 ];
 
-function ContactPage() {
+export default function Contact() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -42,7 +42,7 @@ function ContactPage() {
   };
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" style={{ padding: '20px' }}>
       <Box my={4}>
         <Typography variant="h4" align="center" gutterBottom>
           Contact Us
@@ -116,5 +116,3 @@ function ContactPage() {
     </Container>
   );
 }
-
-export default ContactPage;

@@ -26,7 +26,7 @@ export default function ControlledAccordions() {
 
   return (
     <div>
-      <Container>
+      <Container style={{ padding: "20px" }}>
         <Accordion
           expanded={expanded === "panel1"}
           onChange={handleChange("panel1")}

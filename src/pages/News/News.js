@@ -7,21 +7,21 @@ import { Container } from "@mui/material";
 
 const images = [
   {
-    url: "assets/images/b1.jpg",
+    url: "https://i.ytimg.com/vi/vhg4rPHOlBA/maxresdefault.jpg",
     title: "Avatar",
     width: "30%",
     content:
       "Ten years ago, Avatar was a global sensation as it was recognized as the first film to be entirely produced and shot using 3D technology. Upon its release, Avatar 1 became a phenomenon that took the box office by storm, with audiences worldwide eagerly lining up at theaters just to witness the wondrous world of Pandora on the big screen.",
   },
   {
-    url: "assets/images/b2.jpg",
+    url: "https://vn24h.info/wp-content/uploads/2019/08/MCU-la-gi.png",
     title: "Marvel Studios",
     width: "40%",
     content:
       "The Marvel Cinematic Universe (MCU) will officially enter its Phase 5 starting from 2023, promising to provide audiences with a deeper and more detailed look into the multiverse. To achieve this, Marvel Studios has already prepared a full lineup of blockbuster films and television shows, strategically positioned in both the film and television market.",
   },
   {
-    url: "assets/images/b3.jpg",
+    url: "https://s3-us-west-2.amazonaws.com/prd-rteditorial/wp-content/uploads/2021/07/28113015/700DCEU2.jpg",
     title: "DC Studios",
     width: "30%",
     content:
@@ -101,7 +101,7 @@ export default function News() {
   };
 
   return (
-    <Container>
+    <Container style={{ padding: "20px" }}>
       <Box
         sx={{ display: "flex", flexWrap: "wrap", minWidth: 300, width: "100%" }}
       >
