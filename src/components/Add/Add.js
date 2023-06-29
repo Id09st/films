@@ -101,7 +101,7 @@ export default function Add() {
         <TextField
           margin="dense"
           name="title"
-          label="title"
+          label="Title"
           type="text"
           fullWidth
           variant="standard"
@@ -116,7 +116,7 @@ export default function Add() {
         <TextField
           margin="dense"
           name="duration"
-          label="duration"
+          label="Duration"
           type="text"
           fullWidth
           variant="standard"
@@ -161,7 +161,7 @@ export default function Add() {
         <TextField
           margin="dense"
           name="year"
-          label="year"
+          label="Year"
           type="number"
           fullWidth
           variant="standard"
@@ -192,7 +192,7 @@ export default function Add() {
         <TextField
           margin="dense"
           name="youtube"
-          label="Intro video"
+          label="Intro youtube"
           type="text"
           fullWidth
           variant="standard"
@@ -221,7 +221,7 @@ export default function Add() {
             {formik.errors.info}
           </Typography>
         )}
-        <Button className="m-4" variant="contained" size="small" type="submit">
+        <Button variant="contained" size="small" type="submit">
           Add
         </Button>
       </form>

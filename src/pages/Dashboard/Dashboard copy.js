@@ -9,51 +9,24 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
   Typography,
-  tableCellClasses,
-  useMediaQuery,
 } from "@mui/material";
 import { AddCircleOutline, Delete, Edit } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import ModalEdit from "./ModalEdit";
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  "&:last-child td, &:last-child th": {
-    border: 0,
-  },
-}));
-
 const StyledContainer = styled(Container)(({ theme }) => ({
   padding: "20px",
 }));
 
-export default function Dashboard() {
+const isMobile = useMediaQuery("(max-width: 601px)");
+
+const Dashboard = () => {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [deleteFilmId, setDeleteFilmId] = useState(null);
   const [films, setFilms] = useState([]);
   const [selectedFilmId, setSelectedFilmId] = useState(null);
-
-  const isMobile = useMediaQuery("(max-width: 601px)");
 
   useEffect(() => {
     fetch("https://64933779428c3d2035d18178.mockapi.io/films")
@@ -103,55 +76,54 @@ export default function Dashboard() {
     <>
       {isMobile ? (
         <Container>
-          <StyledContainer>
-            {films.map((film) => (
-              <div key={film.image} style={{ marginBottom: "20px" }}>
-                <Avatar alt={film.name} src={film.image} />
-                <Typography variant="h6">{film.name}</Typography>
-                <Typography variant="body2">{film.title}</Typography>
-                <Typography variant="body2">Duration: {film.duration}</Typography>
-                <Typography variant="body2">Year: {film.year}</Typography>
-                <Typography variant="body2">Nation: {film.nation}</Typography>
-                <Button
-                  onClick={() => handleOpenEdit(film.id)}
-                  color="inherit"
-                  startIcon={<Edit />}
-                >
-                  Edit
-                </Button>
-                <Button
-                  onClick={() => handleOpenConfirmation(film.id)}
-                  color="inherit"
-                  startIcon={<Delete />}
-                >
-                  Delete
-                </Button>
-              </div>
-            ))}
-            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          {films.map((film) => (
+            <div key={film.image} style={{ marginBottom: "20px" }}>
+              <Avatar alt={film.name} src={film.image} />
+              <Typography variant="subtitle1">{film.name}</Typography>
+              <Typography variant="body1">{film.title}</Typography>
+              <Typography variant="body2">Duration: {film.duration}</Typography>
+              <Typography variant="body2">Year: {film.year}</Typography>
+              <Typography variant="body2">Nation: {film.nation}</Typography>
               <Button
-                size="large"
-                color="inherit"
-                component={Link}
-                to="/add"
-                startIcon={<AddCircleOutline />}
+                onClick={() => handleOpenEdit(film.id)}
+                color="primary"
+                startIcon={<Edit />}
               >
-                Add more
+                Edit
+              </Button>
+              <Button
+                onClick={() => handleOpenConfirmation(film.id)}
+                color="secondary"
+                startIcon={<Delete />}
+              >
+                Delete
               </Button>
             </div>
-            {isEditOpen && (
-              <ModalEdit
-                setIsEditOpen={setIsEditOpen}
-                films={films}
-                selectedFilmId={selectedFilmId}
-              />
-            )}
-            <ConfirmationDialog
-              isOpen={isConfirmationOpen}
-              handleClose={() => setIsConfirmationOpen(false)}
-              handleDelete={handleDeleteFilm}
+          ))}
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <Button
+              size="large"
+              color="primary"
+              component={Link}
+              to="/add"
+              startIcon={<AddCircleOutline />}
+            >
+              Add more
+            </Button>
+          </div>
+          {isEditOpen && (
+            <ModalEdit
+              setIsEditOpen={setIsEditOpen}
+              films={films}
+              selectedFilmId={selectedFilmId}
             />
-          </StyledContainer>
+          )}
+
+          <ConfirmationDialog
+            isOpen={isConfirmationOpen}
+            handleClose={() => setIsConfirmationOpen(false)}
+            handleDelete={handleDeleteFilm}
+          />
         </Container>
       ) : (
         <Container style={{ padding: "20px" }}>
@@ -235,7 +207,7 @@ export default function Dashboard() {
       )}
     </>
   );
-}
+};
 
 function ConfirmationDialog({ isOpen, handleClose, handleDelete }) {
   return (
@@ -257,3 +229,5 @@ function ConfirmationDialog({ isOpen, handleClose, handleDelete }) {
     </Dialog>
   );
 }
+
+export default Dashboard;

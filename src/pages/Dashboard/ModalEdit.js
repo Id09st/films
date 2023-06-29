@@ -11,6 +11,7 @@ import {
   TextField,
 } from "@mui/material";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 export default function ModalEdit({ setIsEditOpen, films, selectedFilmId }) {
   const [open, setOpen] = useState(false);
@@ -187,10 +188,21 @@ export default function ModalEdit({ setIsEditOpen, films, selectedFilmId }) {
           />
         </form>
         {open && (
-          <Alert severity="success" onClose={() => setOpen(false)}>
-            <AlertTitle>Success</AlertTitle>
-            Film has been updated successfully!
-          </Alert>
+          <>
+            <Alert severity="success" onClose={() => setOpen(false)}>
+              <AlertTitle>Success</AlertTitle>
+              Film has been updated successfully!
+              <Button style={{ display: "block" }}>
+                <Link
+                  to="/"
+                  className="text-white"
+                  style={{ textDecoration: "none" }}
+                >
+                  Dashboard
+                </Link>
+              </Button>
+            </Alert>
+          </>
         )}
       </DialogContent>
       <DialogActions>
