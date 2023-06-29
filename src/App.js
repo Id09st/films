@@ -8,7 +8,7 @@ import About from "./pages/About/About";
 import News from "./pages/News/News";
 import Add from "./components/Add/Add";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/footer/Footer";
 import Protected from "./components/Context/Protected";
 import jwt_decode from "jwt-decode";
 import { useEffect, useState } from "react";
