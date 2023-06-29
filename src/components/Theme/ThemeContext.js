@@ -16,6 +16,11 @@ export const ThemeProviderWrapper = ({ children }) => {
       primary: {
         main: "#f0f0f0", // Thay đổi màu chính tại đây
       },
+      secondary: {
+        light: "#212121",
+        main: "#757575",
+        dark: "#616161",
+      },
     },
   });
 

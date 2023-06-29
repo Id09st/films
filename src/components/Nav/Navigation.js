@@ -15,9 +15,25 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import { useThemeContext } from "../Theme/ThemeContext";
-import { Brightness4, Brightness7, LocalMovies } from "@mui/icons-material";
+import {
+  Brightness4,
+  Brightness7,
+  LocalMovies,
+  Login,
+  Logout,
+  Person2Outlined,
+} from "@mui/icons-material";
+import { UserAuth } from "../Context/AuthContext";
 
 export default function Navigation() {
+  const { user, logOut } = UserAuth();
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const { darkMode, handleThemeChange } = useThemeContext();
@@ -38,7 +54,7 @@ export default function Navigation() {
     setAnchorElUser(null);
   };
 
-  const pages = ["Dashboard", "News", "About", "Contact"];
+  const pages = ["News", "About", "Contact"];
   const settings = ["Account", "Settings", "Logout"];
 
   return (
@@ -127,37 +143,52 @@ export default function Navigation() {
               </Tooltip>
             ))}
           </Box>
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="menu-appbar"
-            aria-haspopup="true"
-            onClick={handleOpenUserMenu}
-            color="inherit"
-          >
-            <Avatar alt="User Avatar" src="/avatar.jpg" />
-          </IconButton>
-          <Menu
-            id="menu-appbar"
-            anchorEl={anchorElUser}
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "right",
-            }}
-            keepMounted
-            transformOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            open={Boolean(anchorElUser)}
-            onClose={handleCloseUserMenu}
-          >
-            {settings.map((setting) => (
-              <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">{setting}</Typography>
-              </MenuItem>
-            ))}
-          </Menu>
+          <Box sx={{ flexGrow: 0 }}>
+            {user?.displayName ? (
+              <div>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt={user.email} src={user.photoURL} />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  <MenuItem onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">
+                      <Button color="inherit" component={Link} to="/dashboard">
+                        Dashboard
+                      </Button>
+                    </Typography>
+                  </MenuItem>
+                  <MenuItem>
+                    <Typography textAlign="center" onClick={handleSignOut}>
+                      <Button color="inherit" startIcon={<Logout />}>
+                        Logout
+                      </Button>
+                    </Typography>
+                  </MenuItem>
+                </Menu>
+              </div>
+            ) : (
+              <Button color="inherit" component={Link} to="/login" startIcon={<Person2Outlined />}>
+                Login
+              </Button>
+            )}
+          </Box>
           <IconButton
             size="large"
             aria-label="toggle light/dark mode"

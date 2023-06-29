@@ -18,7 +18,6 @@ import {
 } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
 import ModalEdit from "./ModalEdit";
-import { grey } from "@mui/material/colors";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -120,7 +119,7 @@ export default function Dashboard() {
               <StyledTableCell align="left">
                 <Button
                   onClick={() => handleOpenEdit(film.id)}
-                  style={{ color: grey[900] }}
+                  color="secondary"
                 >
                   <Edit />
                 </Button>
@@ -128,7 +127,7 @@ export default function Dashboard() {
               <StyledTableCell align="left">
                 <Button
                   onClick={() => handleOpenConfirmation(film.id)}
-                  style={{ color: grey[900] }}
+                  color="secondary"
                 >
                   <Delete />
                 </Button>

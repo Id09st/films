@@ -4,15 +4,18 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProviderWrapper } from "./components/Theme/ThemeContext";
 import { CssBaseline } from "@mui/material";
+import { AuthContextProvider } from "./components/Context/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <ThemeProviderWrapper>
-      <CssBaseline />
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </ThemeProviderWrapper>
+    <AuthContextProvider>
+      <ThemeProviderWrapper>
+        <CssBaseline />
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </ThemeProviderWrapper>
+    </AuthContextProvider>
   </BrowserRouter>
 );
