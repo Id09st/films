@@ -40,7 +40,7 @@ const StyledCardContent = styled(CardContent)(({}) => ({
 export default function Detail() {
   const { id } = useParams();
   const [isOpen, setIsOpen] = useState(false);
-  const [film, setFilms] = useState([]);
+  const [film, setFilm] = useState(null);
   useEffect(() => {
     fetch(`https://64933779428c3d2035d18178.mockapi.io/films`)
       .then((response) => {
@@ -50,43 +50,44 @@ export default function Detail() {
         return response.json();
       })
       .then((data) => {
-        const film = data.find((obj) => obj.id == id);
-        setFilms(film);
+        const films = data.find((obj) => obj.id == id);
+        setFilm(films);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
-  console.log(film);
 
   return (
     <Container maxWidth="sm" style={{ padding: "20px" }}>
-      <StyledCard>
-        <StyledCardMedia component="img" src={film.image} alt="" />
-        <StyledCardTitle>
-          <Typography variant="h5" color="textPrimary" gutterBottom>
-            {film.title} ({film.year})
-          </Typography>
-          <Rating
-            name="half-rating-read"
-            defaultValue={film.rate}
-            precision={0.5}
-            readOnly
-          />
-          {isOpen && <ModalCase setIsOpen={setIsOpen} film={film} />}
-          <a onClick={() => setIsOpen(true)}>
-            <YouTube sx={{ color: pink[500], fontSize: 25 }} />
-          </a>
-          <Typography variant="subtitle1" color="textPrimary">
-            {film.duration} | {film.nation}
-          </Typography>
-        </StyledCardTitle>
-        <StyledCardContent>
-          <Typography variant="subtitle1" color="textSecondary">
-            {film.name} - {film.info}
-          </Typography>
-        </StyledCardContent>
-      </StyledCard>
+      {film && (
+        <StyledCard>
+          <StyledCardMedia component="img" src={film.image} alt="" />
+          <StyledCardTitle>
+            <Typography variant="h5" color="textPrimary" gutterBottom>
+              {film.title} ({film.year})
+            </Typography>
+            <Rating
+              name="half-rating-read"
+              value={film.rate}
+              precision={0.5}
+              readOnly
+            />
+            {isOpen && <ModalCase setIsOpen={setIsOpen} film={film} />}
+            <a onClick={() => setIsOpen(true)}>
+              <YouTube sx={{ color: pink[500], fontSize: 25 }} />
+            </a>
+            <Typography variant="subtitle1" color="textPrimary">
+              {film.duration} | {film.nation}
+            </Typography>
+          </StyledCardTitle>
+          <StyledCardContent>
+            <Typography variant="subtitle1" color="textSecondary">
+              {film.name} - {film.info}
+            </Typography>
+          </StyledCardContent>
+        </StyledCard>
+      )}
     </Container>
   );
 }

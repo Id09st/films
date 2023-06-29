@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import { Delete, Edit } from "@mui/icons-material";
 import ModalEdit from "./ModalEdit";
+import { Link } from "react-router-dom";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -111,23 +112,26 @@ export default function Dashboard() {
               <StyledTableCell align="left">
                 <Avatar alt={film.name} src={film.image} />
               </StyledTableCell>
-              <StyledTableCell align="left">{film.name}</StyledTableCell>
+              <StyledTableCell
+                align="left"
+                component={Link}
+                to={`/detail/${film.id}`}
+              >
+                {film.name}
+              </StyledTableCell>
               <StyledTableCell align="left">{film.title}</StyledTableCell>
               <StyledTableCell align="left">{film.duration}</StyledTableCell>
               <StyledTableCell align="left">{film.year}</StyledTableCell>
               <StyledTableCell align="left">{film.nation}</StyledTableCell>
               <StyledTableCell align="left">
-                <Button
-                  onClick={() => handleOpenEdit(film.id)}
-                  color="secondary"
-                >
+                <Button onClick={() => handleOpenEdit(film.id)} color="inherit">
                   <Edit />
                 </Button>
               </StyledTableCell>
               <StyledTableCell align="left">
                 <Button
                   onClick={() => handleOpenConfirmation(film.id)}
-                  color="secondary"
+                  color="inherit"
                 >
                   <Delete />
                 </Button>
@@ -164,11 +168,11 @@ function ConfirmationDialog({ isOpen, handleClose, handleDelete }) {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleDelete} color="success">
-          Yes
-        </Button>
         <Button onClick={handleClose} color="error">
           No
+        </Button>
+        <Button onClick={handleDelete} color="success">
+          Yes
         </Button>
       </DialogActions>
     </Dialog>
